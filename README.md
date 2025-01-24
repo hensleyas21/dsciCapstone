@@ -4,8 +4,7 @@ A data science capstone project for Grove City College.
 
 ## Authors
 
-Austin Hensley
-Stevie Michalik
+Austin Hensley, Stevie Michalik
 
 ## Data Sources
 
