@@ -12,6 +12,8 @@ Austin Hensley, Stevie Michalik
 
 ## Data Cleaning
 
+### Columns Retained
+
 - play_id and game_id: composite unique identifier  
 - home_team  
 - away_team  
@@ -117,5 +119,6 @@ Austin Hensley, Stevie Michalik
 - surface  
 - temp  
 - wind  
-
-TODO: start at home_coach
+- home_coach  
+- away_coach  
+- play  
