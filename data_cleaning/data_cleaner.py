@@ -33,7 +33,9 @@ def remove_missing(df: pd.DataFrame, col_name: str) -> pd.DataFrame:
 
     returns a reference to the resulting DataFrame (which may be the same as in the input df)
     """
-    raise NotImplementedError('TODO: Implement this function')
+    if col_name not in df.columns:
+        return df
+    return df.dropna(subset=[col_name])
 
 def replace_missing_with_value(df: pd.DataFrame, col_name: str, value: Any) -> Iterable[Any]:
     """Returns a modified version of the given column where missing values are filled with the given static value"""
