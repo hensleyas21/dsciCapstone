@@ -59,4 +59,7 @@ def replace_missing_with_mean(df: pd.DataFrame, col_name: str) -> Iterable[Any]:
 
 def replace_missing_with_median(df: pd.DataFrame, col_name: str) -> Iterable[Any]:
     """Returns a modified version of the given column where missing values are filled with the median value"""
-    raise NotImplementedError('TODO: Implement this function')
+    if col_name not in df.columns:
+        return None
+    median = df[col_name].median(skipna=True)
+    return df[col_name].fillna(median)
