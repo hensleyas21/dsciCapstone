@@ -35,11 +35,13 @@ def remove_missing(df: pd.DataFrame, col_name: str) -> pd.DataFrame:
     """
     if col_name not in df.columns:
         return df
-    return df.dropna(subset=[col_name])
+    return df.copy().dropna(subset=[col_name])
 
 def replace_missing_with_value(df: pd.DataFrame, col_name: str, value: Any) -> Iterable[Any]:
     """Returns a modified version of the given column where missing values are filled with the given static value"""
-    raise NotImplementedError('TODO: Implement this function')
+    if col_name not in df.columns:
+        return None
+    return df[col_name].fillna(value)
 
 def replace_missing_with_mode(df: pd.DataFrame, col_name: str) -> Iterable[Any]:
     """Returns a modified version of the given column where missing values are filled with the most common value"""
