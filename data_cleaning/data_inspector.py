@@ -43,12 +43,13 @@ def make_density_plot(data: Sequence[int|float]) -> Image.Image:
     sns.kdeplot(data)
     image = get_image()
     return image
-    #raise NotImplementedError('TODO: Implement this function')
 
 def make_boxplot(data: Sequence[int|float]) -> Image.Image:
     """Create a boxplot to show the distribution of a variable."""
     # NOTE: the get_image function may be helpful here converting the current matplotlib plot to an image
-    raise NotImplementedError('TODO: Implement this function')
+    sns.boxplot(data)
+    image = get_image()
+    return image
 
 def make_barplot(data: Sequence[str], name:str|None=None, order:list[str]|None=None) -> Image.Image:
     """
