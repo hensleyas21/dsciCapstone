@@ -40,12 +40,16 @@ def make_plot(df: pd.DataFrame, col_name: str, action: str, args: list[Any], kwa
 def make_density_plot(data: Sequence[int|float]) -> Image.Image:
     """Create a density to show the distribution of a variable."""
     # NOTE: the get_image function may be helpful here converting the current matplotlib plot to an image
-    raise NotImplementedError('TODO: Implement this function')
+    sns.kdeplot(data)
+    image = get_image()
+    return image
 
 def make_boxplot(data: Sequence[int|float]) -> Image.Image:
     """Create a boxplot to show the distribution of a variable."""
     # NOTE: the get_image function may be helpful here converting the current matplotlib plot to an image
-    raise NotImplementedError('TODO: Implement this function')
+    sns.boxplot(data)
+    image = get_image()
+    return image
 
 def make_barplot(data: Sequence[str], name:str|None=None, order:list[str]|None=None) -> Image.Image:
     """
@@ -53,7 +57,11 @@ def make_barplot(data: Sequence[str], name:str|None=None, order:list[str]|None=N
     If an order is provided, counts are shown in that order on the x-axis, otherwise alphabetical order is used.
     """
     # NOTE: the get_image function may be helpful here converting the current matplotlib plot to an image
-    raise NotImplementedError('TODO: Implement this function')
+    sns.barplot(data=count_categories(data), order=order)
+    if name:
+        plt.title(name)
+    image = get_image()
+    return image
 
 def count_categories(items: Iterable[K]) -> dict[K, int]:
     """Returns a dictionary mapping each unique item in items to the number of times it appears"""
