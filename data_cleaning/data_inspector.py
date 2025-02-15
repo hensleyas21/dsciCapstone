@@ -59,7 +59,7 @@ def make_barplot(data: Sequence[str], name:str|None=None, order:list[str]|None=N
     # NOTE: the get_image function may be helpful here converting the current matplotlib plot to an image
     sns.barplot(data=count_categories(data), order=order)
     if name:
-        plt.title(name)
+        plt.xlabel(name)
     image = get_image()
     return image
 
