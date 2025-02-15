@@ -1,7 +1,7 @@
 import pandas as pd
 
 from statistics import mean, median, stdev
-from typing import Sequence, Callable, Any
+from typing import Sequence, Callable, Any, Dict
 
 import os
 import sys
@@ -41,18 +41,18 @@ def transform_feature(df: pd.DataFrame, col_name: str, action: str, args: list[A
 
 def z_score_norm(items: Sequence[int|float]) -> Sequence[float]:
     """Translates all values into standard deviations above and below the mean"""
-    raise NotImplementedError('TODO: Implement this function')
+    return [(item - mean(items)) / stdev(items) for item in items]
 
 def min_max_norm(items: Sequence[int|float]) -> Sequence[float]:
     """Scales all items into the range [0, 1]"""
-    raise NotImplementedError('TODO: Implement this function')
+    return [(item - min(items)) / (max(items) - min(items)) for item in items]
 
 def merge_uncommon(items: Sequence[str], default: str = 'OTHER',
-                   max_categories: int|None = None, 
-                   min_count: int|None = None, 
+                   max_categories: int|None = None,
+                   min_count: int|None = None,
                    min_pct: float|None = None) -> Sequence[str]:
     """Merges infrequent categorical labels into a single miscellaneous category
-    
+
     Positional Arguments:
     items   - A sequence if categorical labels to be transformed
     default - The default value with which to replace uncommon labels
@@ -66,32 +66,73 @@ def merge_uncommon(items: Sequence[str], default: str = 'OTHER',
     """
     # NOTE: Exactly ONE of the keyword arguments should be specified!
     #       More or less should result in an exception!
-    raise NotImplementedError('TODO: Implement this function')
+    if len([kwarg for kwarg in [max_categories, min_count, min_pct] if kwarg is None]) != 2:
+        raise Exception('Only one keyword argument should be specified')
+
+    return_items = None
+
+    counts = {}
+    for item in items:
+        counts[item] = counts.get(item, 0) + 1
+
+    if max_categories is not None:
+        top_categories = [tup[0] for tup in sorted(counts.items(), key=lambda x: x[1], reverse=True)[:max_categories]]
+        return_items = [item if item in top_categories else default for item in items]
+
+    if min_count is not None:
+        return_items = [item if counts[item] >= min_count else default for item in items]
+
+    if min_pct is not None:
+        percentages = {item: counts[item] / len(items) for item in counts.keys()}
+        return_items = [item if percentages[item] >= min_pct else default for item in items]
+
+    return return_items
+
 
 def make_named_bins(items: Sequence[int|float], cut: str, names: Sequence[str]):
     """Bins items using the specified strategy and represents each with one of the given names"""
     # HINT: you should make use of the _find_bins function defined below
-    raise NotImplementedError('TODO: Implement this function')
+    return [names[b] for b in _find_bins(items, cut, len(names))]
 
 def make_mean_bins(items: Sequence[int|float], cut: str, bin_count: int) -> Sequence[int|float]:
     """Bins items using the specified cut strategy and represents each bin with its mean"""
     # HINT: you should make use of the _find_bins function defined below
-    raise NotImplementedError('TODO: Implement this function')
+    bins = [b for b in _find_bins(items, cut, bin_count)]
+    values_by_bin = [[] for _ in range(bin_count)]
+    for value, b in zip(items, bins):
+        values_by_bin[b].append(value)
+    averages_by_bin = [mean(bin_values) for bin_values in values_by_bin]
+    return [averages_by_bin[b] for b in bins]
 
 def make_median_bins(items: Sequence[int|float], cut: str, bin_count: int) -> Sequence[int|float]:
     """Bins items using the specified cut strategy and represents each bin with its median"""
     # HINT: you should make use of the _find_bins function defined below
-    raise NotImplementedError('TODO: Implement this function')
+    bins = [b for b in _find_bins(items, cut, bin_count)]
+    values_by_bin = [[] for _ in range(bin_count)]
+    for value, b in zip(items, bins):
+        values_by_bin[b].append(value)
+    medians_by_bin = [median(bin_values) for bin_values in values_by_bin]
+    return [medians_by_bin[b] for b in bins]
 
 def make_min_bins(items: Sequence[int|float], cut: str, bin_count: int) -> Sequence[int|float]:
     """Bins items using the specified cut strategy and represents each bin with its minimum value"""
     # HINT: you should make use of the _find_bins function defined below
-    raise NotImplementedError('TODO: Implement this function')
+    bins = [b for b in _find_bins(items, cut, bin_count)]
+    values_by_bin = [[] for _ in range(bin_count)]
+    for value, b in zip(items, bins):
+        values_by_bin[b].append(value)
+    averages_by_bin = [min(bin_values) for bin_values in values_by_bin]
+    return [averages_by_bin[b] for b in bins]
 
 def make_max_bins(items: Sequence[int|float], cut: str, bin_count: int) -> Sequence[int|float]:
     """Bins items using the specified cut strategy and represents each bin with its maximum value"""
     # HINT: you should make use of the _find_bins function defined below
-    raise NotImplementedError('TODO: Implement this function')
+    bins = [b for b in _find_bins(items, cut, bin_count)]
+    values_by_bin = [[] for _ in range(bin_count)]
+    for value, b in zip(items, bins):
+        values_by_bin[b].append(value)
+    averages_by_bin = [max(bin_values) for bin_values in values_by_bin]
+    return [averages_by_bin[b] for b in bins]
 
 def _find_bins(items: Sequence[int|float], cut: str, bin_count: int) -> Sequence[int]:
     """Bins the items and returns a sequence of bin numbers in the range [0,bin_count)"""
