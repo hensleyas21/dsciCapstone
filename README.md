@@ -89,35 +89,35 @@ Austin Hensley, Stevie Michalik
 - field_goal_attempt: Categorical. Binary indicator for whether a field goal was attempted on this play
 - kickoff_attempt: Categorical. Binary indicator for whether a kickoff was attempted on this play  
 - punt_attempt: Categorical. Binary indicator for whether a punt was attempted on this play  
-- passer_player_id:   
-- passer_player_name  
-- passing_yards  
-- receiver_player_id  
-- receiver_player_name  
-- receiving_yards  
-- rusher_player_id  
-- rusher_player_name  
-- rushing_yards  
-- kicker_player_id  
-- kicker_player_name  
-- penalty_team  
-- replay_or_challenge  
-- replay_or_challenge_result  
-- season  
-- series  
-- start_time  
-- stadium  
-- weather  
-- play_clock  
-- play_deleted  
-- play_type_nfl  
-- fixed_drive  
-- location  
-- div_game  
-- roof  
-- surface  
-- temp  
-- wind  
-- home_coach  
-- away_coach  
-- play  
+- passer_player_id: Categorical. ID to show which player threw a pass on a given play if a pass was thrown
+- passer_player_name: Categorical. String to show which player threw a pass on a given play if a pass was thrown  
+- passing_yards: Nominal. Number of yards the passer threw for on this play, if a pass was thrown
+- receiver_player_id: Categorical. ID to show which player caught a pass on a given play if a pass was thrown
+- receiver_player_name: Categorical. String to show which player caught a pass on a given play if a pass was thrown
+- receiving_yards: Nominal. Number of yards the receiver had on this play, if a pass was thrown
+- rusher_player_id: Categorical. ID to show which player ran the ball on this play, if the play was a run play
+- rusher_player_name: Categorical. String to show which player ran the ball on this play, if the play was a run play
+- rushing_yards: Nominal. Number of yards the rusher had on this play, if the play was a run  
+- kicker_player_id: Categorical. ID to show the player which attempted a kick on this play, if the play was a kicking play  
+- kicker_player_name: Categorical. String to show the player which attempted a kick on this play, if the play was a kicking play  
+- penalty_team: Categorical. String abbreviation of the team that committed a penalty
+- replay_or_challenge: Categorical. Binary indicator for whether the play was replayed or challenged. 
+- replay_or_challenge_result: Categorical. String indicating the result of the replay or challenge.   
+- season: Categorical. Four-digit number indicating what season the game belongs to
+- series: Categorical. Starts at 1, each new first down increments, numbers shared across both teams NA: kickoffs, extra point/two point conversion attempts, non-plays, no posteam
+- start_time: Categorical. Kickoff time in eastern time zone.
+- stadium: Categorical. Game site name
+- weather: Categorical. String describing the weather including temperature, humidity and wind (direction and speed). 
+- play_clock: Categorical. Time on the playclock when the ball was snapped.
+- play_deleted: Categorical. Binary indicator for deleted plays  
+- play_type_nfl: Categorical. Play type as listed in the NFL source (slightly different to play_type variable)  
+- fixed_drive: Categorical. Manually created drive number in a game.
+- location: Categorical. Either 'Home' or 'Neutral' indicating if the home team played at home or at a neutral site. 
+- div_game: Categorical. Binary indicator for if the given game was a division game.
+- roof: Categorical. One of 'dome', 'outdoors', 'closed', 'open' indicating the roof status of the stadium the game was played in. (Source: Pro-Football-Reference)
+- surface: Categorical. What type of ground the game was played on. (Source: Pro-Football-Reference)
+- temp: Nominal. The temperature at the stadium only for 'roof' = 'outdoors' or 'open'. (Source: Pro-Football-Reference)
+- wind: Nominal. The speed of the wind in miles/hour only for 'roof' = 'outdoors' or 'open'. (Source: Pro-Football-Reference)
+- home_coach: Categorical. First and last name of home teach coach
+- away_coach:  Categorical. First and last name of away teach coach  
+- play: Categorical. Binary indicator: 1 if the play was a 'normal' play (including penalties), 0 otherwise.
