@@ -41,7 +41,6 @@ Austin Hensley, Stevie Michalik
 - no_huddle: Categorical. Binary indicator for whether the posteam did not huddle before the play
 - qb_dropback: Categorical. Binary indicator for whether the QB dropped back on the play (pass attempt, sack, or scrambled)  
 - qb_scramble: Categorical. Binary indicator for whether the QB scrambled on the play
-- pass_location: Categorical. String indicating where the QB threw the football on the play (if there was a pass). Left, Middle, Right
 - air_yards: Nominal. The number of yards the QB threw the ball through the air to the receiver. Probably not feeding into model  
 - yards_after_catch: Nominal. The number of yards the receiver carried the ball after the catch. Probably not feeding into model  
 - run_location: Categorical. The direction which the ball carrier went on a rush (Left, Middle, Right)  
@@ -104,14 +103,9 @@ Austin Hensley, Stevie Michalik
 - replay_or_challenge: Categorical. Binary indicator for whether the play was replayed or challenged. 
 - replay_or_challenge_result: Categorical. String indicating the result of the replay or challenge.   
 - season: Categorical. Four-digit number indicating what season the game belongs to
-- series: Categorical. Starts at 1, each new first down increments, numbers shared across both teams NA: kickoffs, extra point/two point conversion attempts, non-plays, no posteam
 - start_time: Categorical. Kickoff time in eastern time zone.
 - stadium: Categorical. Game site name
 - weather: Categorical. String describing the weather including temperature, humidity and wind (direction and speed). 
-- play_clock: Categorical. Time on the playclock when the ball was snapped.
-- play_deleted: Categorical. Binary indicator for deleted plays  
-- play_type_nfl: Categorical. Play type as listed in the NFL source (slightly different to play_type variable)  
-- fixed_drive: Categorical. Manually created drive number in a game.
 - location: Categorical. Either 'Home' or 'Neutral' indicating if the home team played at home or at a neutral site. 
 - div_game: Categorical. Binary indicator for if the given game was a division game.
 - roof: Categorical. One of 'dome', 'outdoors', 'closed', 'open' indicating the roof status of the stadium the game was played in. (Source: Pro-Football-Reference)
@@ -120,4 +114,3 @@ Austin Hensley, Stevie Michalik
 - wind: Nominal. The speed of the wind in miles/hour only for 'roof' = 'outdoors' or 'open'. (Source: Pro-Football-Reference)
 - home_coach: Categorical. First and last name of home teach coach
 - away_coach:  Categorical. First and last name of away teach coach  
-- play: Categorical. Binary indicator: 1 if the play was a 'normal' play (including penalties), 0 otherwise.
