@@ -1,0 +1,357 @@
+{
+  "raw_dataset_path": "data/",
+  "clean_dataset_path": "cleaned_data.csv",
+  "plot_directory_path": "plots",
+  "attributes": {
+    "home_team": {
+      "type": "nominal"
+    },
+    "away_team": {
+      "type": "nominal"
+    },
+    "season_type": {
+      "type": "nominal"
+    },
+    "week": {
+      "type": "nominal"
+    },
+    "posteam": {
+      "type": "nominal"
+    },
+    "posteam_type": {
+      "type": "nominal"
+    },
+    "defteam": {
+      "type": "nominal"
+    },
+    "yardline_100": {
+      "type": "real"
+    },
+    "half_seconds_remaining": {
+      "type": "real"
+    },
+    "game_seconds_remaining": {
+      "type": "real"
+    },
+    "game_half": {
+      "type": "nominal"
+    },
+    "qtr": {
+      "type": "nominal"
+    },
+    "down": {
+      "type": "nominal"
+    },
+    "goal_to_go": {
+      "type": "nominal"
+    },
+    "ydstogo": {
+      "type": "real"
+    },
+    "yards_gained": {
+      "type": "real"
+    },
+    "shotgun": {
+      "type": "nominal"
+    },
+    "no_huddle": {
+      "type": "nominal"
+    },
+    "qb_dropback": {
+      "type": "nominal"
+    },
+    "qb_scramble": {
+      "type": "nominal"
+    },
+    "run_location": {
+      "type": "nominal"
+    },
+    "run_gap": {
+      "type": "nominal"
+    },
+    "field_goal_result": {
+      "type": "nominal"
+    },
+    "kick_distance": {
+      "type": "real"
+    },
+    "extra_point_result": {
+      "type": "nominal"
+    },
+    "two_point_conv_result": {
+      "type": "nominal"
+    },
+    "home_timeouts_remaining": {
+      "type": "real"
+    },
+    "away_timeouts_remaining": {
+      "type": "real"
+    },
+    "posteam_timeouts_remaining": {
+      "type": "real"
+    },
+    "defteam_timeouts_remaining": {
+      "type": "real"
+    },
+    "posteam_score": {
+      "type": "real"
+    },
+    "defteam_score": {
+      "type": "real"
+    },
+    "wp": {
+      "type": "real"
+    },
+    "punt_blocked": {
+      "type": "nominal"
+    },
+    "first_down_rush": {
+      "type": "nominal"
+    },
+    "first_down_pass": {
+      "type": "nominal"
+    },
+    "first_down_penalty": {
+      "type": "nominal"
+    },
+    "third_down_converted": {
+      "type": "nominal"
+    },
+    "third_down_failed": {
+      "type": "nominal"
+    },
+    "fourth_down_converted": {
+      "type": "nominal"
+    },
+    "fourth_down_failed": {
+      "type": "nominal"
+    },
+    "incomplete_pass": {
+      "type": "nominal"
+    },
+    "safety": {
+      "type": "nominal"
+    },
+    "penalty": {
+      "type": "nominal"
+    },
+    "fumble_lost": {
+      "type": "nominal"
+    },
+    "qb_hit": {
+      "type": "nominal"
+    },
+    "rush_attempt": {
+      "type": "nominal"
+    },
+    "pass_attempt": {
+      "type": "nominal"
+    },
+    "sack": {
+      "type": "nominal"
+    },
+    "touchdown": {
+      "type": "nominal"
+    },
+    "extra_point_attempt": {
+      "type": "nominal"
+    },
+    "two_point_attempt": {
+      "type": "nominal"
+    },
+    "field_goal_attempt": {
+      "type": "nominal"
+    },
+    "kickoff_attempt": {
+      "type": "nominal"
+    },
+    "punt_attempt": {
+      "type": "nominal"
+    },
+    "passing_yards": {
+      "type": "real"
+    },
+    "receiving_yards": {
+      "type": "real"
+    },
+    "rushing_yards": {
+      "type": "real"
+    },
+    "replay_or_challenge": {
+      "type": "nominal"
+    },
+    "replay_or_challenge_result": {
+      "type": "nominal"
+    },
+    "season": {
+      "type": "nominal"
+    },
+    "start_time": {
+      "type": "nominal"
+    },
+    "stadium": {
+      "type": "nominal"
+    },
+    "weather": {
+      "type": "nominal"
+    },
+    "location": {
+      "type": "nominal"
+    },
+    "div_game": {
+      "type": "nominal"
+    },
+    "roof": {
+      "type": "nominal"
+    },
+    "surface": {
+      "type": "nominal"
+    },
+    "temp": {
+      "type": "real"
+    },
+    "wind": {
+      "type": "real"
+    },
+    "home_coach": {
+      "type": "nominal"
+    },
+    "away_coach": {
+      "type": "nominal"
+    }
+  },
+  "cleaning": [
+    {
+      "attribute": "play_type",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "play_id",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "game_id",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "home_team",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "away_team",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "season_type",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "posteam",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "posteam_type",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "defteam",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "yardline_100",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "half_seconds_remaining",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "game_seconds_remaining",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "game_half",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "qtr",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "down",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "yards_gained",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "epa",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "total_home_rush_epa",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "total_away_rush_epa",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "total_home_pass_epa",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "total_away_pass_epa",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "season",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "start_time",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "stadium",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "weather",
+      "missing_strategy": "remove"
+    },
+    {
+      "attribute": "air_yards",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "yards_after_catch",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "run_location",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "timeout",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "passing_yards",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "receiving_yards",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "rushing_yards",
+      "missing_strategy": "replace_missing_with_zero"
+    }
+  ],
+  "transforming": [
+  ],
+  "plotting": [
+  ]
+}
