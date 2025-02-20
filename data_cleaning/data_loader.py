@@ -13,7 +13,7 @@ def load_data(path: str, columns: dict[str,DTypeLike], missing: dict[str,set[str
 
     returns a DataFrame loaded from the filepath given with the specified columns and types
     """
-    csv_files = glob.glob(os.path.join(path, '/*.csv'))
+    csv_files = glob.glob(os.path.join(path, '*.csv'))
 
     dataframes = []
     for filename in csv_files:
