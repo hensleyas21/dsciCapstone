@@ -39,4 +39,4 @@ def load_data(path: str, columns: dict[str,DTypeLike], missing: dict[str,set[str
 
 def save_data(df: pd.DataFrame, path: str) -> None:
     """Saves the transformed dataset into the specified output file"""
-    df.to_csv(path)
+    df.to_csv(path, index=False)
