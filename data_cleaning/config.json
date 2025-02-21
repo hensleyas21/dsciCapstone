@@ -322,19 +322,7 @@
       "missing_strategy": "remove"
     },
     {
-      "attribute": "air_yards",
-      "missing_strategy": "replace_missing_with_zero"
-    },
-    {
-      "attribute": "yards_after_catch",
-      "missing_strategy": "replace_missing_with_zero"
-    },
-    {
       "attribute": "run_location",
-      "missing_strategy": "replace_missing_with_zero"
-    },
-    {
-      "attribute": "timeout",
       "missing_strategy": "replace_missing_with_zero"
     },
     {
@@ -348,6 +336,46 @@
     {
       "attribute": "rushing_yards",
       "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "field_goal_result",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "run_gap",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "kick_distance",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "extra_point_result",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "two_point_conv_result",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "replay_or_challenge_result",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "surface",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "temp",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "wind",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "mssing",
+      "missing_strategy": "replace_missing_with_missing"
     }
   ],
   "transforming": [
