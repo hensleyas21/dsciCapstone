@@ -41,7 +41,9 @@ def transform_feature(df: pd.DataFrame, col_name: str, action: str, args: list[A
 
 def z_score_norm(items: Sequence[int|float]) -> Sequence[float]:
     """Translates all values into standard deviations above and below the mean"""
-    return [(item - mean(items)) / stdev(items) for item in items]
+    m = mean(items)
+    s = stdev(items)
+    return [(item - m) / s for item in items]
 
 def min_max_norm(items: Sequence[int|float]) -> Sequence[float]:
     """Scales all items into the range [0, 1]"""

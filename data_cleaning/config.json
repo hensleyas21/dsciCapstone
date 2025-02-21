@@ -330,23 +330,7 @@
     },
     {
       "attribute": "epa",
-      "missing_strategy": "remove"
-    },
-    {
-      "attribute": "total_home_rush_epa",
-      "missing_strategy": "remove"
-    },
-    {
-      "attribute": "total_away_rush_epa",
-      "missing_strategy": "remove"
-    },
-    {
-      "attribute": "total_home_pass_epa",
-      "missing_strategy": "remove"
-    },
-    {
-      "attribute": "total_away_pass_epa",
-      "missing_strategy": "remove"
+      "missing_strategy": "replace_missing_with_zero"
     },
     {
       "attribute": "season",
@@ -458,6 +442,10 @@
     }
   ],
   "transforming": [
+    {
+      "action": "z_score_norm",
+      "attribute": "epa"
+    }
   ],
   "plotting": [
     {
