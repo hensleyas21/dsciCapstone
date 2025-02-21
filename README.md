@@ -12,6 +12,8 @@ Austin Hensley, Stevie Michalik
 
 ## Data Cleaning
 
+To clean the data, run the following command from the main directory of the project: `py data_cleaning/demo.py data_cleaning/config.json`
+
 ### Columns Retained
 
 - play_id and game_id: composite unique identifier. Not planning on including in model
