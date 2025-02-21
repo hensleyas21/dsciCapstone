@@ -1,10 +1,11 @@
-# Data Science Capstone
+# Analyzing NFL Data
  
-A data science capstone project for Grove City College.
+A data science capstone project for Grove City College. This project aims to anaylze a variety of data from the NFL and to create a model to predict different play types.
 
 ## Authors
 
-[Austin Hensley](https://github.com/MichalikSJ21), Stevie Michalik
+[Austin Hensley](https://github.com/hensleyas21),
+[Stevie Michalik](https://github.com/MichalikSJ21)
 
 ## Data Sources
 
@@ -13,7 +14,9 @@ A data science capstone project for Grove City College.
 ## Data Cleaning
 
 To clean the data, run the following command from the main directory of the project:  
-`py data_cleaning/demo.py data_cleaning/config.json`
+```sh
+py data_cleaning/demo.py data_cleaning/config.json
+```
 
 ### Columns Retained
 
@@ -105,4 +108,4 @@ To clean the data, run the following command from the main directory of the proj
 - away_coach:  Categorical. First and last name of away teach coach  
 
 ### Footnotes
-[^1]: [description of the fields](https://www.nflfastr.com/articles/field_descriptions.html)
+[^1]: [Description of the NFL Play Data fields](https://www.nflfastr.com/articles/field_descriptions.html)
