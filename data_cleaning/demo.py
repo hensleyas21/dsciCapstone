@@ -133,7 +133,7 @@ def load_config(path: str) -> Any:
 def get_datatype(name: str) -> DTypeLike:
     match name:
         case 'real': return np.float32
-        case 'nominal': return np.unicode_
+        case 'nominal': return np.str_
         case _: raise ValueError(f"Unrecognized attribute type {name}")
 
 if __name__=='__main__':
