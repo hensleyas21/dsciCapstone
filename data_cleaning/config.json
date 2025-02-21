@@ -1,7 +1,7 @@
 {
   "raw_dataset_path": "data/",
   "clean_dataset_path": "cleaned_data.csv",
-  "plot_directory_path": "plots",
+  "plot_directory_path": "data_cleaning/plots",
   "attributes": {
     "play_id": {
       "type": "nominal"
@@ -460,5 +460,30 @@
   "transforming": [
   ],
   "plotting": [
+    {
+      "action": "make_barplot",
+      "attribute": "play_type",
+      "name": "PlayTypeBarPlot"
+    },
+    {
+      "action": "make_density_plot",
+      "attribute": "yardline_100",
+      "name": "Yardline100DensityPlot"
+    },
+    {
+      "action": "make_boxplot",
+      "attribute": "score_differential",
+      "name": "ScoreDifferentialBoxPlot"
+    },
+    {
+      "action": "make_density_plot",
+      "attribute": "wp",
+      "name": "WPDensityPlot"
+    },
+    {
+      "action": "make_barplot",
+      "attribute": "wind",
+      "name": "WindBarPlot"
+    }
   ]
 }
