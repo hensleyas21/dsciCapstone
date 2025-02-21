@@ -13,6 +13,7 @@ def fix_missing(df: pd.DataFrame, col_name: str, strategy: str) -> pd.DataFrame:
                   2. replace_missing_with_mean
                   3. replace_missing_with_median
                   4. replace_missing_with_zero
+                  5. replace_missing_with_missing
 
     returns a reference to the resulting DataFrame (which may be the same as in the input df)
     """
@@ -21,6 +22,7 @@ def fix_missing(df: pd.DataFrame, col_name: str, strategy: str) -> pd.DataFrame:
     elif strategy == 'replace_missing_with_mean': f = replace_missing_with_mean
     elif strategy == 'replace_missing_with_median': f = replace_missing_with_median
     elif strategy == 'replace_missing_with_zero': f = replace_missing_with_zero
+    elif strategy == 'replace_missing_with_missing': f = replace_missing_with_missing
     else: raise ValueError(f"Unrecognized missing replacement strategy: {strategy}")
     # call that function and return the resulting DataFrame
     df[col_name] = f(df, col_name)
@@ -46,7 +48,10 @@ def replace_missing_with_value(df: pd.DataFrame, col_name: str, value: Any) -> I
     return df[col_name].fillna(value)
 
 def replace_missing_with_zero(df: pd.DataFrame, col_name: str) -> Iterable[Any]:
-    replace_missing_with_value(df, col_name, 0)
+    return replace_missing_with_value(df, col_name, 0)
+
+def replace_missing_with_missing(df: pd.DataFrame, col_name: str) -> Iterable[Any]:
+    return replace_missing_with_value(df, col_name, "missing")
 
 def replace_missing_with_mode(df: pd.DataFrame, col_name: str) -> Iterable[Any]:
     """Returns a modified version of the given column where missing values are filled with the most common value"""
