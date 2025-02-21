@@ -22,7 +22,7 @@ def load_data(path: str, columns: dict[str,DTypeLike], missing: dict[str,set[str
         dataframes.append(df)
         for column, values in missing.items():
             for value in values:
-                df[column].replace(value, np.nan, inplace=True)
+                df[column] = df[column].replace(value, np.nan)
 
     df = pd.concat(dataframes, axis=0, ignore_index=True)
 

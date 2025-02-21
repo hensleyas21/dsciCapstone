@@ -10,7 +10,8 @@
       "type": "nominal"
     },
     "play_type": {
-      "type": "nominal"
+      "type": "nominal",
+      "missing_values": ["no_play"]
     },
     "home_team": {
       "type": "nominal"
@@ -365,19 +366,19 @@
     },
     {
       "attribute": "run_location",
-      "missing_strategy": "replace_missing_with_zero"
+      "missing_strategy": "replace_missing_with_missing"
     },
     {
       "attribute": "passing_yards",
-      "missing_strategy": "replace_missing_with_zero"
+      "missing_strategy": "replace_missing_with_missing"
     },
     {
       "attribute": "receiving_yards",
-      "missing_strategy": "replace_missing_with_zero"
+      "missing_strategy": "replace_missing_with_missing"
     },
     {
       "attribute": "rushing_yards",
-      "missing_strategy": "replace_missing_with_zero"
+      "missing_strategy": "replace_missing_with_missing"
     },
     {
       "attribute": "field_goal_result",
@@ -457,10 +458,6 @@
     }
   ],
   "transforming": [
-    {
-      "action": "z_score_norm",
-      "attribute": "epa"
-    }
   ],
   "plotting": [
   ]
