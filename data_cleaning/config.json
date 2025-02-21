@@ -422,6 +422,38 @@
     {
       "attribute": "qb_dropback",
       "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "drive",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "passer_player_id",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "passer_player_name",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "rusher_player_id",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "rusher_player_name",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "receiver_player_id",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "receiver_player_name",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "penalty_team",
+      "missing_strategy": "replace_missing_with_missing"
     }
   ],
   "transforming": [
