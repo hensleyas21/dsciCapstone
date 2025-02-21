@@ -36,8 +36,6 @@ def load_data(path: str, columns: dict[str,DTypeLike], missing: dict[str,set[str
         elif value == 'nominal':
             df[key] = df[key].astype('category')
 
-    # @TODO: confused about what to do with the missing values
-
     return df
 
 
