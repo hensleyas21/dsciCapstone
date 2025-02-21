@@ -457,6 +457,10 @@
     }
   ],
   "transforming": [
+    {
+      "action": "z_score_norm",
+      "attribute": "epa"
+    }
   ],
   "plotting": [
   ]
