@@ -41,8 +41,6 @@ Austin Hensley, Stevie Michalik
 - no_huddle: Categorical. Binary indicator for whether the posteam did not huddle before the play
 - qb_dropback: Categorical. Binary indicator for whether the QB dropped back on the play (pass attempt, sack, or scrambled)  
 - qb_scramble: Categorical. Binary indicator for whether the QB scrambled on the play
-- air_yards: Nominal. The number of yards the QB threw the ball through the air to the receiver. Probably not feeding into model  
-- yards_after_catch: Nominal. The number of yards the receiver carried the ball after the catch. Probably not feeding into model  
 - run_location: Categorical. The direction which the ball carrier went on a rush (Left, Middle, Right)  
 - run_gap: Categorical. String indicator for line gap of run: end, guard, or tackle  
 - field_goal_result: Categorical. String indicator for whether a field goal was made or missed
@@ -51,7 +49,6 @@ Austin Hensley, Stevie Michalik
 - two_point_conv_result: Categorical. String indicator showing whether a two point conversion attempt was successful or not (Success, Failure)
 - home_timeouts_remaining: Nominal. Number of timeouts remaining for the home team
 - away_timeouts_remaining: Nominal. Number of timeouts remaining for the home team
-- timeout: Categorical. Binary indicator showing whether there was timeout taken before the play. Not planning on including in model
 - posteam_timeouts_remaining: Nominal. Number of timeouts remaining for the posteam
 - defteam_timeouts_remaining: Nominal. Number of timeouts remaining for the defteam  
 - posteam_score: Nominal. Number of points which the posteam has before the start of the play.   

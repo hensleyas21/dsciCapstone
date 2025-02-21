@@ -372,10 +372,6 @@
     {
       "attribute": "wind",
       "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "mssing",
-      "missing_strategy": "replace_missing_with_missing"
     }
   ],
   "transforming": [
