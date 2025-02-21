@@ -4,15 +4,16 @@ A data science capstone project for Grove City College.
 
 ## Authors
 
-Austin Hensley, Stevie Michalik
+[Austin Hensley](https://github.com/MichalikSJ21), Stevie Michalik
 
 ## Data Sources
 
-[NFL play data](https://github.com/nflverse/nflverse-data/releases/tag/pbp) ([description of the fields](https://www.nflfastr.com/articles/field_descriptions.html))
+[NFL Play Data](https://github.com/nflverse/nflverse-data/releases/tag/pbp)[^1]
 
 ## Data Cleaning
 
-To clean the data, run the following command from the main directory of the project: `py data_cleaning/demo.py data_cleaning/config.json`
+To clean the data, run the following command from the main directory of the project:  
+`py data_cleaning/demo.py data_cleaning/config.json`
 
 ### Columns Retained
 
@@ -102,3 +103,6 @@ To clean the data, run the following command from the main directory of the proj
 - wind: Nominal. The speed of the wind in miles/hour only for 'roof' = 'outdoors' or 'open'. (Source: Pro-Football-Reference)
 - home_coach: Categorical. First and last name of home teach coach
 - away_coach:  Categorical. First and last name of away teach coach  
+
+### Footnotes
+[^1]: [description of the fields](https://www.nflfastr.com/articles/field_descriptions.html)
