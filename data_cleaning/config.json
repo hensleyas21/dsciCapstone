@@ -372,6 +372,14 @@
     {
       "attribute": "wind",
       "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "wp",
+      "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "qb_dropback",
+      "missing_strategy": "replace_missing_with_missing"
     }
   ],
   "transforming": [
