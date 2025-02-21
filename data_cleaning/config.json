@@ -3,6 +3,12 @@
   "clean_dataset_path": "cleaned_data.csv",
   "plot_directory_path": "plots",
   "attributes": {
+    "play_id": {
+      "type": "nominal"
+    },
+    "game_id": {
+      "type": "nominal"
+    },
     "play_type": {
       "type": "nominal"
     },
@@ -37,6 +43,12 @@
       "type": "real"
     },
     "game_half": {
+      "type": "nominal"
+    },
+    "drive": {
+      "type": "nominal"
+    },
+    "sp": {
       "type": "nominal"
     },
     "qtr": {
@@ -100,6 +112,12 @@
       "type": "real"
     },
     "defteam_score": {
+      "type": "real"
+    },
+    "score_differential": {
+      "type": "real"
+    },
+    "epa": {
       "type": "real"
     },
     "wp": {
@@ -174,11 +192,32 @@
     "passing_yards": {
       "type": "real"
     },
+    "passer_player_id": {
+      "type": "nominal"
+    },
+    "passer_player_name": {
+      "type": "nominal"
+    },
     "receiving_yards": {
       "type": "real"
     },
+    "receiver_player_id": {
+      "type": "nominal"
+    },
+    "receiver_player_name": {
+      "type": "nominal"
+    },
     "rushing_yards": {
       "type": "real"
+    },
+    "rusher_player_id": {
+      "type": "nominal"
+    },
+    "rusher_player_name": {
+      "type": "nominal"
+    },
+    "penalty_team": {
+      "type": "nominal"
     },
     "replay_or_challenge": {
       "type": "nominal"
