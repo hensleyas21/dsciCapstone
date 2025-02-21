@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from numpy.typing import DTypeLike
 import glob
@@ -19,6 +20,9 @@ def load_data(path: str, columns: dict[str,DTypeLike], missing: dict[str,set[str
     for filename in csv_files:
         df = pd.read_csv(filename, index_col=None, header=0)
         dataframes.append(df)
+        for column, values in missing.items():
+            for value in values:
+                df[column].replace(value, np.nan, inplace=True)
 
     df = pd.concat(dataframes, axis=0, ignore_index=True)
 
