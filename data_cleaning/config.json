@@ -3,6 +3,9 @@
   "clean_dataset_path": "cleaned_data.csv",
   "plot_directory_path": "plots",
   "attributes": {
+    "play_type": {
+      "type": "nominal"
+    },
     "home_team": {
       "type": "nominal"
     },
