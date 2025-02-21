@@ -402,7 +402,7 @@
     },
     {
       "attribute": "wp",
-      "missing_strategy": "replace_missing_with_missing"
+      "missing_strategy": "remove"
     },
     {
       "attribute": "qb_dropback",
