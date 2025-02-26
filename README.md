@@ -35,7 +35,6 @@ py data_cleaning/demo.py data_cleaning/config.json
 - game_half: Categorical. Indicates whether the game is in the first or second half
 - drive: Nominal. The current drive number for the game. Potentially not including in model
 - sp: Categorical. Binary indicator for whether a score occurred on the play. Probably not including in model  
-- qtr: Categorical. Indicator 1-4 of what quarter the game is in. 
 - down: Categorical. Indicator 1-4 of the down at the beginning of the play  
 - goal_to_go: Categorical. Binary indicator showing whether or not the posteam is in a goal to go scenario
 - ydstogo: Nominal. Number of yards left until the posteam achieves a first down. 
@@ -51,8 +50,6 @@ py data_cleaning/demo.py data_cleaning/config.json
 - kick_distance: Nominal. The distance in yards for a kicking play  
 - extra_point_result: Categorical. String indicator showing whether the extra point attempt was successful or not (Good, Failed, Blocked)
 - two_point_conv_result: Categorical. String indicator showing whether a two point conversion attempt was successful or not (Success, Failure)
-- home_timeouts_remaining: Nominal. Number of timeouts remaining for the home team
-- away_timeouts_remaining: Nominal. Number of timeouts remaining for the home team
 - posteam_timeouts_remaining: Nominal. Number of timeouts remaining for the posteam
 - defteam_timeouts_remaining: Nominal. Number of timeouts remaining for the defteam  
 - posteam_score: Nominal. Number of points which the posteam has before the start of the play.   
@@ -106,6 +103,73 @@ py data_cleaning/demo.py data_cleaning/config.json
 - wind: Nominal. The speed of the wind in miles/hour only for 'roof' = 'outdoors' or 'open'. (Source: Pro-Football-Reference)
 - home_coach: Categorical. First and last name of home teach coach
 - away_coach:  Categorical. First and last name of away teach coach  
+
+### One Hot Encoding Columns
+- play_type
+- home_team
+- away_team
+- pos_team
+- def_team
+- game_half
+- down
+- passer_player_id
+- season (on second run through)
+- stadium
+- roof
+- surface
+- coach
+
+### Convert to Boolean
+- season_type
+- location
+- posteam_type
+
+### Drop Time (not passed into model)
+- yards_gained
+- qb_scramble
+- qb_dropback
+- kick_distance
+- punt_blocked  
+- first_down_rush
+- first_down_pass
+- first_down_penalty
+- third_down_converted
+- third_down_failed
+- fourth_down_converted
+- fourth_down_failed
+- incomplete_pass
+- safety
+- penalty
+- fumble_lost
+- qb_hit
+- sack
+- touchdown
+- extra_point_attempt
+- two_point_attempt
+- field_goal_attempt
+- kickoff_attempt
+- punt_attempt
+- passing_yards
+- passer_player_name  
+- receiving_yards
+- receiver_player_id
+- receiver_player_name
+- rushing_yards
+- rusher_player_id
+- rusher_player_name
+- penalty_team
+- replay_or_challenge
+- replay_or_challenge_result
+- weather
+
+### Secondary Predictor Fields
+- run_location/run_gap
+- rush_attempt
+- pass_attempt
+- field_goal_result
+
+### Investigate
+- extra_point_result, two_point_result potentially all missing
 
 ### Footnotes
 [^1]: [Description of the NFL Play Data fields](https://www.nflfastr.com/articles/field_descriptions.html)
