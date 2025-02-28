@@ -49,9 +49,9 @@ if not os.path.exists('data_report/nominal_params.csv'):
         mode_val = df[nom_param].mode()[0]
         data = [{
             'param': nom_param,
-            '%_missing': df[nom_param].isna().mean() * 100,
+            '%_missing': df[nom_param].isna().mean(),
             'mode': mode_val,
-            '%_mode': (df[nom_param] == mode_val).mean() * 100,
+            '%_mode': (df[nom_param] == mode_val).mean(),
         }]
         nom_df = pd.concat([nom_df, pd.DataFrame(data)], ignore_index=True)
 
@@ -64,7 +64,7 @@ if not os.path.exists('data_report/numeric_params.csv'):
     for num_param in numeric_params:
         data = [{
             'param': num_param,
-            '%_missing': df[num_param].isna().mean() * 100,
+            '%_missing': df[num_param].isna().mean(),
             'min': df[num_param].min(),
             'max': df[num_param].max(),
             'median': df[num_param].median(),
