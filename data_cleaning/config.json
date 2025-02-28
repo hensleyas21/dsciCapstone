@@ -98,16 +98,20 @@
       "type": "nominal"
     },
     "home_timeouts_remaining": {
-      "type": "real"
+      "type": "real",
+      "missing_values": [-1]
     },
     "away_timeouts_remaining": {
-      "type": "real"
+      "type": "real",
+      "missing_values": [-1]
     },
     "posteam_timeouts_remaining": {
-      "type": "real"
+      "type": "real",
+      "missing_values": [-1]
     },
     "defteam_timeouts_remaining": {
-      "type": "real"
+      "type": "real",
+      "missing_values": [-1]
     },
     "posteam_score": {
       "type": "real"
@@ -439,6 +443,22 @@
     {
       "attribute": "penalty_team",
       "missing_strategy": "replace_missing_with_missing"
+    },
+    {
+      "attribute": "home_timeouts_remaining",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "away_timeouts_remaining",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "posteam_timeouts_remaining",
+      "missing_strategy": "replace_missing_with_zero"
+    },
+    {
+      "attribute": "defteam_timeouts_remaining",
+      "missing_strategy": "replace_missing_with_zero"
     }
   ],
   "transforming": [
