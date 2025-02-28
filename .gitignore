@@ -3,3 +3,6 @@ __pycache__/
 *.py[cod]
 
 cleaned_data.csv
+
+data_report/*.pkl
+data_report/*.csv
