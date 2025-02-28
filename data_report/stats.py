@@ -43,30 +43,32 @@ else:
 
 
 # Outputs a CSV with the nominal parameter stats
-nom_df = pd.DataFrame(columns=['param', '%_missing', 'mode', '%_mode'])
-for nom_param in nominal_params:
-    mode_val = df[nom_param].mode()[0]
-    data = [{
-        'param': nom_param,
-        '%_missing': df[nom_param].isna().mean() * 100,
-        'mode': mode_val,
-        '%_mode': (df[nom_param] == mode_val).mean() * 100,
-    }]
-    nom_df = pd.concat([nom_df, pd.DataFrame(data)], ignore_index=True)
+if not os.path.exists('data_report/nominal_params.csv'):
+    nom_df = pd.DataFrame(columns=['param', '%_missing', 'mode', '%_mode'])
+    for nom_param in nominal_params:
+        mode_val = df[nom_param].mode()[0]
+        data = [{
+            'param': nom_param,
+            '%_missing': df[nom_param].isna().mean() * 100,
+            'mode': mode_val,
+            '%_mode': (df[nom_param] == mode_val).mean() * 100,
+        }]
+        nom_df = pd.concat([nom_df, pd.DataFrame(data)], ignore_index=True)
 
-nom_df.to_csv('data_report/nominal_params.csv')
+    nom_df.to_csv('data_report/nominal_params.csv')
 
 
 # Outputs a CSV with the numeric parameter stats
-num_df = pd.DataFrame(columns=['param', '%_missing', 'min', 'max', 'median'])
-for num_param in numeric_params:
-    data = [{
-        'param': num_param,
-        '%_missing': df[num_param].isna().mean() * 100,
-        'min': df[num_param].min(),
-        'max': df[num_param].max(),
-        'median': df[num_param].median(),
-    }]
-    num_df = pd.concat([num_df, pd.DataFrame(data)], ignore_index=True)
+if not os.path.exists('data_report/numeric_params.csv'):
+    num_df = pd.DataFrame(columns=['param', '%_missing', 'min', 'max', 'median'])
+    for num_param in numeric_params:
+        data = [{
+            'param': num_param,
+            '%_missing': df[num_param].isna().mean() * 100,
+            'min': df[num_param].min(),
+            'max': df[num_param].max(),
+            'median': df[num_param].median(),
+        }]
+        num_df = pd.concat([num_df, pd.DataFrame(data)], ignore_index=True)
 
-num_df.to_csv('data_report/numeric_params.csv')
+    num_df.to_csv('data_report/numeric_params.csv')
