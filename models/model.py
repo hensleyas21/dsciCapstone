@@ -1,7 +1,5 @@
 import pandas as pd
 
-df = pd.read_csv('data/cleaned_data.csv')
-
-df.sample(frac=.01).to_csv('random_sample.csv')
+df = pd.read_csv('cleaned_data.csv')
 
 print(df.columns)
