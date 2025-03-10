@@ -52,9 +52,6 @@
     "sp": {
       "type": "nominal"
     },
-    "qtr": {
-      "type": "nominal"
-    },
     "down": {
       "type": "nominal"
     },
@@ -96,14 +93,6 @@
     },
     "two_point_conv_result": {
       "type": "nominal"
-    },
-    "home_timeouts_remaining": {
-      "type": "real",
-      "missing_values": [-1]
-    },
-    "away_timeouts_remaining": {
-      "type": "real",
-      "missing_values": [-1]
     },
     "posteam_timeouts_remaining": {
       "type": "real",
@@ -321,10 +310,6 @@
       "missing_strategy": "remove"
     },
     {
-      "attribute": "qtr",
-      "missing_strategy": "remove"
-    },
-    {
       "attribute": "down",
       "missing_strategy": "remove"
     },
@@ -443,14 +428,6 @@
     {
       "attribute": "penalty_team",
       "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "home_timeouts_remaining",
-      "missing_strategy": "replace_missing_with_zero"
-    },
-    {
-      "attribute": "away_timeouts_remaining",
-      "missing_strategy": "replace_missing_with_zero"
     },
     {
       "attribute": "posteam_timeouts_remaining",
