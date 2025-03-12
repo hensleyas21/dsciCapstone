@@ -105,9 +105,6 @@ py data_cleaning/demo.py data_cleaning/config.json
 - away_coach:  Categorical. First and last name of away teach coach  
 
 ### One Hot Encoding Columns
-- play_type
-- home_team
-- away_team
 - pos_team
 - def_team
 - game_half
@@ -125,6 +122,8 @@ py data_cleaning/demo.py data_cleaning/config.json
 - posteam_type
 
 ### Drop Time (not passed into model)
+- home_team
+- away_team
 - yards_gained
 - qb_scramble
 - qb_dropback
