@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
-from argparse import Namespace, ArgumentParser
+from argparse import ArgumentParser
 
 
 def train_model(model_type):
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
 
     parser.add_argument('-m', '--model', type=str,
-                        help='Name of the model to be used. Valid Options: [DecisionTreeClassifier, GaussianNB, KNeighborsClassifier, LogisticRegression, RandomForestClassifier]')
+                        help='Name of the model to be used. Valid Options: [DecisionTreeClassifier, GaussianNB, KNeighborsClassifier, LogisticRegression, RandomForestClassifier, LinearSVC]')
     args = parser.parse_args()
     model = None
 
@@ -75,9 +75,11 @@ if __name__ == '__main__':
             model = LogisticRegression()
         elif args.model == 'RandomForestClassifier':
             model = RandomForestClassifier()
+        elif args.model == 'LinearSVC':
+            model = LinearSVC()
         else:
             raise ValueError('Model type not recognized. Please input one in the following list:\n'
-                             '[DecisionTreeClassifier, GaussianNB, KNeighborsClassifier, LogisticRegression, RandomForestClassifier]')
+                             '[DecisionTreeClassifier, GaussianNB, KNeighborsClassifier, LogisticRegression, RandomForestClassifier, LinearSVC]')
         train_model(model)
     except ValueError as e:
         print(e)
