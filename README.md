@@ -4,7 +4,7 @@ A data science capstone project for Grove City College. This project aims to ana
 
 ## Authors
 
-[Austin Hensley](https://github.com/hensleyas21),
+[Austin Hensley](https://austinhensley.com),
 [Stevie Michalik](https://github.com/MichalikSJ21)
 
 ## Data Sources
