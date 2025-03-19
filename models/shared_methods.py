@@ -25,8 +25,4 @@ def return_clean_data_df():
     df = pd.get_dummies(df, columns=one_hot_encoding_fields)
     print(f'num cols = {len(df.columns)}')
 
-    for field in one_hot_encoding_fields:
-        if field.startswith('drive'):
-            print("ahhhhhh")
-
     return df
