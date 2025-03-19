@@ -12,12 +12,16 @@ def return_clean_data_df():
 
     print(f'columns before encoding = {list(df.columns)}')
 
-    one_hot_encoding_fields = ['home_team', 'away_team', 'season_type', 'posteam', 'drive',
-                               'posteam_type', 'defteam', 'game_half', 'start_time', 'stadium', 'location', 'roof',
-                               'surface',
-                               'temp', 'wind', 'home_coach', 'away_coach']
+    one_hot_encoding_fields = ['home_team', 'away_team', 'season_type', 'posteam', 
+                               'posteam_type', 'defteam', 'game_half', 'start_time',
+                               'stadium', 'location', 'roof', 'surface', 'temp',
+                               'wind', 'home_coach', 'away_coach']
 
     df = pd.get_dummies(df, columns=one_hot_encoding_fields)
     print(f'num cols = {len(df.columns)}')
+
+    for field in one_hot_encoding_fields:
+        if field.startswith('drive'):
+            print("ahhhhhh")
 
     return df
