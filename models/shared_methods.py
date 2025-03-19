@@ -1,4 +1,6 @@
 import pandas as pd
+import additional_cleaning_steps
+
 def return_clean_data_df():
     # read in initial data and drop columns not included in the model
     # Note: this is specifically for the model related to predicting play_type.
@@ -9,6 +11,9 @@ def return_clean_data_df():
                     'wind', 'home_coach', 'away_coach']
     df = pd.read_csv('../cleaned_data.csv')
     df = df.loc[:, cols_to_keep]
+
+    print('apply additional cleaning steps')
+    df = additional_cleaning_steps.apply_additional_cleaning(df)
 
     print(f'columns before encoding = {list(df.columns)}')
 
