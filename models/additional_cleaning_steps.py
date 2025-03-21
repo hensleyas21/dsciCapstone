@@ -28,7 +28,6 @@ def apply_additional_cleaning(df: pd.DataFrame) -> pd.DataFrame:
 
     new_df = pd.concat(df_list)
     new_df = new_df.rename(columns={'passer_player_name': 'quarterback_on_field'})
-    new_df[['passer_player_name', 'posteam', 'defteam', 'game_id']].to_csv('test.csv', index=False)
 
     new_df['drive'] = new_df['drive'].astype(float)
 
