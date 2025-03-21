@@ -10,7 +10,7 @@ def return_clean_data_df():
     cols_to_keep = ['play_type', 'home_team', 'away_team', 'season_type', 'week', 'posteam', 'posteam_type', 'defteam', 'yardline_100',
                     'half_seconds_remaining', 'game_seconds_remaining', 'game_half', 'drive', 'down', 'goal_to_go', 'ydstogo', 'shotgun',
                     'no_huddle', 'posteam_timeouts_remaining', 'defteam_timeouts_remaining', 'posteam_score', 'game_id',
-                    'defteam_score', 'score_differential', 'epa', 'wp', 'season', 'start_time', 'stadium', 'location', 'div_game', 'roof', 'surface', 'temp',
+                    'defteam_score', 'score_differential', 'epa', 'wp', 'season', 'stadium', 'location', 'div_game', 'roof', 'surface', 'temp',
                     'wind', 'home_coach', 'away_coach', 'passer_player_name']
     df = pd.read_csv('../cleaned_data.csv')
     df = df.loc[:, cols_to_keep]
@@ -23,7 +23,7 @@ def return_clean_data_df():
     print(f'columns before encoding = {list(df.columns)}')
 
     one_hot_encoding_fields = ['home_team', 'away_team', 'season_type', 'posteam',
-                               'posteam_type', 'defteam', 'game_half', 'start_time', 'stadium', 'location', 'roof',
+                               'posteam_type', 'defteam', 'game_half', 'stadium', 'location', 'roof',
                                'surface', 'temp', 'wind', 'posteam_coach', 'defteam_coach', 'quarterback_on_field']
 
     df = pd.get_dummies(df, columns=one_hot_encoding_fields)
