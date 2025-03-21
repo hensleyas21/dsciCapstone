@@ -1,4 +1,7 @@
 import pandas as pd
+import importlib
+imported_module = importlib.import_module("additional_cleaning_steps")
+importlib.reload(imported_module)
 import additional_cleaning_steps
 
 def return_clean_data_df():
@@ -14,6 +17,8 @@ def return_clean_data_df():
 
     print('apply additional cleaning steps')
     df = additional_cleaning_steps.apply_additional_cleaning(df)
+
+    df = df.drop(columns=['home_coach', 'away_coach', 'game_id'])
 
     print(f'columns before encoding = {list(df.columns)}')
 
