@@ -5,7 +5,7 @@ def return_clean_data_df():
     # read in initial data and drop columns not included in the model
     # Note: this is specifically for the model related to predicting play_type.
     cols_to_keep = ['play_type', 'home_team', 'away_team', 'season_type', 'week', 'posteam', 'posteam_type', 'defteam', 'yardline_100',
-                    'half_seconds_remaining', 'game_seconds_remaining', 'game_half', 'drive', 'qtr', 'down', 'goal_to_go', 'ydstogo', 'shotgun',
+                    'half_seconds_remaining', 'game_seconds_remaining', 'game_half', 'drive', 'down', 'goal_to_go', 'ydstogo', 'shotgun',
                     'no_huddle', 'posteam_timeouts_remaining', 'defteam_timeouts_remaining', 'posteam_score', 'game_id',
                     'defteam_score', 'score_differential', 'epa', 'wp', 'season', 'start_time', 'stadium', 'location', 'div_game', 'roof', 'surface', 'temp',
                     'wind', 'home_coach', 'away_coach', 'passer_player_name']
