@@ -29,6 +29,6 @@ def apply_additional_cleaning(df: pd.DataFrame) -> pd.DataFrame:
     new_df = pd.concat(df_list)
     new_df = new_df.rename(columns={'passer_player_name': 'quarterback_on_field'})
 
-    new_df['drive'] = new_df['drive'].astype(float)
+    new_df['drive'] = pd.to_numeric(new_df['drive'], errors='coerce').fillna(0)
 
     return new_df
