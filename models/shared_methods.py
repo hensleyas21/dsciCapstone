@@ -19,7 +19,7 @@ def return_clean_data_df():
 
     one_hot_encoding_fields = ['home_team', 'away_team', 'season_type', 'posteam',
                                'posteam_type', 'defteam', 'game_half', 'start_time', 'stadium', 'location', 'roof',
-                               'surface', 'temp', 'wind', 'posteam_coach', 'defteam_coach', 'passer_player_name']
+                               'surface', 'temp', 'wind', 'posteam_coach', 'defteam_coach', 'quarterback_on_field']
 
     df = pd.get_dummies(df, columns=one_hot_encoding_fields)
     print(f'num cols = {len(df.columns)}')
