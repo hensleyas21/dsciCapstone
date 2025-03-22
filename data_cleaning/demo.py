@@ -20,6 +20,7 @@ from data_loader import load_data, save_data
 from data_cleaner import remove_missing, fix_missing
 from data_transformer import transform_feature
 from data_inspector import make_plot
+from additional_cleaning_steps import apply_additional_cleaning
 
 def main(args: Namespace):
     # load the configuration from the JSON config file
@@ -45,6 +46,10 @@ def main(args: Namespace):
     # apply any transformations in order the are specified
     for ts in config.transform_steps:
         transform_feature(df, ts.attribute, ts.action, ts.args, ts.kwargs)
+
+    # apply additional cleaning steps not found in the config file
+    df = apply_additional_cleaning(df)
+
     # save the data at the determined location
     save_data(df, config.clean_dataset_path)
     # make all requested plots saving them in the plot directory

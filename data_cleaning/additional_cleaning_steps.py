@@ -23,7 +23,7 @@ def apply_additional_cleaning(df: pd.DataFrame) -> pd.DataFrame:
 
     for key, chunk_df in chunks.items():
         chunk_df['passer_player_name'] = chunk_df['passer_player_name'].replace('missing', np.nan)
-        chunk_df['passer_player_name'] = chunk_df['passer_player_name'].fillna(method='ffill').fillna(method='bfill')
+        chunk_df['passer_player_name'] = chunk_df['passer_player_name'].ffill().bfill()
         df_list.append(chunk_df)
 
     new_df = pd.concat(df_list)
