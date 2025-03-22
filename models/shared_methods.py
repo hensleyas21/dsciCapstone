@@ -8,15 +8,12 @@ def return_clean_data_df():
                     'no_huddle', 'posteam_timeouts_remaining', 'defteam_timeouts_remaining', 'posteam_score',
                     'defteam_score', 'score_differential', 'wp', 'season', 'location', 'div_game', 'roof', 'surface', 'temp',
                     'wind', 'quarterback_on_field', 'posteam_coach', 'defteam_coach']
-    df = pd.read_csv('../cleaned_data.csv')
-    df = df.loc[:, cols_to_keep]
-
-    print(f'columns before encoding = {list(df.columns)}')
+    
+    df = pd.read_csv('../cleaned_data.csv', usecols=cols_to_keep)
 
     one_hot_encoding_fields = ['season_type', 'posteam', 'posteam_type', 'defteam', 'game_half', 'location', 'roof',
                                'surface', 'temp', 'wind', 'posteam_coach', 'defteam_coach', 'quarterback_on_field']
 
     df = pd.get_dummies(df, columns=one_hot_encoding_fields)
-    print(f'num cols = {len(df.columns)}')
 
     return df
