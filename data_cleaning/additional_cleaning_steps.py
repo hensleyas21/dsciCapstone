@@ -9,7 +9,7 @@ def apply_additional_cleaning(df: pd.DataFrame) -> pd.DataFrame:
 
     df['posteam_coach'] = np.where(df['posteam_type'] == 'home', df['home_coach'], df['away_coach'])
     df['defteam_coach'] = np.where(df['posteam_type'] == 'home', df['away_coach'], df['home_coach'])
-    df.drop(['home_coach', 'away_coach'], axis=1)
+    df.drop(['home_coach', 'away_coach'], axis=1, inplace=True)
 
     # For the Passing Player Column, translate it so that passer_player_is applied for all columns (not just pass plays)
     # This ensures that the QB on the field is maintained throughout the whole game.
@@ -30,5 +30,7 @@ def apply_additional_cleaning(df: pd.DataFrame) -> pd.DataFrame:
     new_df = new_df.rename(columns={'passer_player_name': 'quarterback_on_field'})
 
     new_df['drive'] = pd.to_numeric(new_df['drive'], errors='coerce').fillna(0)
+
+    new_df.drop(['home_team', 'away_team'], axis=1, inplace=True)
 
     return new_df
