@@ -79,21 +79,6 @@
     "run_location": {
       "type": "nominal"
     },
-    "run_gap": {
-      "type": "nominal"
-    },
-    "field_goal_result": {
-      "type": "nominal"
-    },
-    "kick_distance": {
-      "type": "real"
-    },
-    "extra_point_result": {
-      "type": "nominal"
-    },
-    "two_point_conv_result": {
-      "type": "nominal"
-    },
     "posteam_timeouts_remaining": {
       "type": "real",
       "missing_values": [-1]
@@ -117,77 +102,11 @@
     "wp": {
       "type": "real"
     },
-    "punt_blocked": {
-      "type": "nominal"
-    },
-    "first_down_rush": {
-      "type": "nominal"
-    },
-    "first_down_pass": {
-      "type": "nominal"
-    },
-    "first_down_penalty": {
-      "type": "nominal"
-    },
-    "third_down_converted": {
-      "type": "nominal"
-    },
-    "third_down_failed": {
-      "type": "nominal"
-    },
-    "fourth_down_converted": {
-      "type": "nominal"
-    },
-    "fourth_down_failed": {
-      "type": "nominal"
-    },
-    "incomplete_pass": {
-      "type": "nominal"
-    },
-    "safety": {
-      "type": "nominal"
-    },
     "penalty": {
-      "type": "nominal"
-    },
-    "fumble_lost": {
-      "type": "nominal"
-    },
-    "qb_hit": {
-      "type": "nominal"
-    },
-    "rush_attempt": {
-      "type": "nominal"
-    },
-    "pass_attempt": {
-      "type": "nominal"
-    },
-    "sack": {
-      "type": "nominal"
-    },
-    "touchdown": {
-      "type": "nominal"
-    },
-    "extra_point_attempt": {
-      "type": "nominal"
-    },
-    "two_point_attempt": {
-      "type": "nominal"
-    },
-    "field_goal_attempt": {
-      "type": "nominal"
-    },
-    "kickoff_attempt": {
-      "type": "nominal"
-    },
-    "punt_attempt": {
       "type": "nominal"
     },
     "passing_yards": {
       "type": "real"
-    },
-    "passer_player_id": {
-      "type": "nominal"
     },
     "passer_player_name": {
       "type": "nominal"
@@ -195,28 +114,16 @@
     "receiving_yards": {
       "type": "real"
     },
-    "receiver_player_id": {
-      "type": "nominal"
-    },
     "receiver_player_name": {
       "type": "nominal"
     },
     "rushing_yards": {
       "type": "real"
     },
-    "rusher_player_id": {
-      "type": "nominal"
-    },
     "rusher_player_name": {
       "type": "nominal"
     },
     "penalty_team": {
-      "type": "nominal"
-    },
-    "replay_or_challenge": {
-      "type": "nominal"
-    },
-    "replay_or_challenge_result": {
       "type": "nominal"
     },
     "season": {
@@ -354,30 +261,6 @@
       "missing_strategy": "replace_missing_with_missing"
     },
     {
-      "attribute": "field_goal_result",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "run_gap",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "kick_distance",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "extra_point_result",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "two_point_conv_result",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "replay_or_challenge_result",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
       "attribute": "surface",
       "missing_strategy": "replace_missing_with_missing"
     },
@@ -402,23 +285,11 @@
       "missing_strategy": "replace_missing_with_missing"
     },
     {
-      "attribute": "passer_player_id",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
       "attribute": "passer_player_name",
       "missing_strategy": "replace_missing_with_missing"
     },
     {
-      "attribute": "rusher_player_id",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
       "attribute": "rusher_player_name",
-      "missing_strategy": "replace_missing_with_missing"
-    },
-    {
-      "attribute": "receiver_player_id",
       "missing_strategy": "replace_missing_with_missing"
     },
     {
