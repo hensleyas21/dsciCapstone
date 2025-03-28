@@ -11,7 +11,7 @@
     },
     "play_type": {
       "type": "nominal",
-      "missing_values": ["no_play"]
+      "missing_values": ["no_play", "kickoff", "qb_spike"]
     },
     "home_team": {
       "type": "nominal"
