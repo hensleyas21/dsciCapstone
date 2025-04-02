@@ -1,3 +1,4 @@
+from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.svm import LinearSVC
@@ -5,8 +6,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
 from argparse import ArgumentParser
+from feature_selection import return_feature_selection_rows
 import pickle
 import shared_methods
 
@@ -14,13 +16,13 @@ def train_model(model_type):
     df = shared_methods.return_clean_data_df()
     play_type_to_num = {'pass': 0, 'run': 1, 'punt': 2, 'field_goal': 3, 'qb_kneel': 4, 'qb_spike': 5}
     df['play_type'] = df['play_type'].map(play_type_to_num)
+
+    print('Doing Feature Selection')
+    feature_selection_rows = list(return_feature_selection_rows(df))
+    print(f'Rows to Select upon: {feature_selection_rows}')
+    df = df[['play_type']+feature_selection_rows]
+
     print('Splitting into test and train')
-
-    # NOTE FOR DR. DICKINSON: Whenever the model was run with 300,000 records or more, the results took an extraordinary amount of time to run
-    # Additionally, past a certain point the model would refuse to run the `fit()` method at all if the dataset was too large (500,000+ records)
-    # We sampled 100,000 records for the initial models, and plan to talk to you about the best way to chunk the dataset for future models.
-
-    df = df.sample(n=100000)
     X = df.drop(columns=['play_type'])
     y = df['play_type']
     X_train, X_test, y_train, y_test = train_test_split(X, y)
@@ -41,6 +43,20 @@ def train_model(model_type):
     with open(filename, 'wb') as file:
         pickle.dump(model_type, file)
 
+    # print('Printing Decision Tree')
+    # text_representation = export_text(model_type)
+    # print(text_representation)
+    #
+    # print('Saving Decision Tree picture')
+    # fig = plt.figure(figsize=(15, 10))
+    # _ = plot_tree(model_type,
+    #               feature_names=X.columns,
+    #               class_names=[y.name],
+    #               filled=True,
+    #               fontsize=10
+    # )
+    # fig.savefig("decision_tree.png")
+
 
 if __name__ == '__main__':
     parser = ArgumentParser()
@@ -52,7 +68,7 @@ if __name__ == '__main__':
 
     try:
         if args.model == 'DecisionTreeClassifier':
-            model = DecisionTreeClassifier()
+            model = DecisionTreeClassifier(max_depth=5)
         elif args.model == 'GaussianNB':
             model = GaussianNB()
         elif args.model == 'KNeighborsClassifier':
