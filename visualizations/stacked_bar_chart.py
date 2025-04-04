@@ -35,7 +35,7 @@ def output_stacked_bar_chart():
     plt.legend(loc='upper left')
     plt.xlabel("Offensive Team")
     plt.ylabel("Percentage")
-    plt.savefig('stacked_bar_chart.png')
+    plt.savefig('charts/stacked_bar_chart.png')
 
 
 if __name__ == '__main__':
