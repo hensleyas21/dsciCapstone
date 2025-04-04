@@ -1,8 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-SEASON = 2024
+SEASON = 2020
 
 def output_stacked_bar_chart():
     df = pd.read_csv('../cleaned_data.csv')
@@ -30,9 +29,13 @@ def output_stacked_bar_chart():
 
     df = df.sort_values(by='run_ratio', ascending=False)
 
-    df = df.set_index('posteam')
-    df.plot(kind='bar', stacked=True)
-    plt.savefig('stacked_bar_chart.png')
+    df = df.set_index('posteam').rename(columns={'run_ratio': 'Run', 'pass_ratio': 'Pass'})
+    df.plot(kind='bar', stacked=True, width=1)
+    plt.title(f'Run/Pass Ratio by Team in {SEASON}')
+    plt.legend(loc='upper left')
+    plt.xlabel("Offensive Team")
+    plt.ylabel("Percentage")
+    plt.savefig('charts/stacked_bar_chart.png')
 
 
 if __name__ == '__main__':
