@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-SEASON = 2020
+SEASON = 2024
 
 def output_stacked_bar_chart():
     df = pd.read_csv('../cleaned_data.csv')
@@ -28,14 +28,15 @@ def output_stacked_bar_chart():
     df = df[['posteam', 'run_ratio', 'pass_ratio']]
 
     df = df.sort_values(by='run_ratio', ascending=False)
-
+    
     df = df.set_index('posteam').rename(columns={'run_ratio': 'Run', 'pass_ratio': 'Pass'})
     df.plot(kind='bar', stacked=True, width=1)
     plt.title(f'Run/Pass Ratio by Team in {SEASON}')
     plt.legend(loc='upper left')
     plt.xlabel("Offensive Team")
     plt.ylabel("Percentage")
-    plt.savefig('charts/stacked_bar_chart.png')
+    plt.savefig('charts/stacked_bar_chart.svg')
+    plt.show()
 
 
 if __name__ == '__main__':
