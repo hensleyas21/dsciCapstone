@@ -43,19 +43,16 @@ def train_model(model_type):
     with open(filename, 'wb') as file:
         pickle.dump(model_type, file)
 
-    # print('Printing Decision Tree')
-    # text_representation = export_text(model_type)
-    # print(text_representation)
-    #
-    # print('Saving Decision Tree picture')
-    # fig = plt.figure(figsize=(15, 10))
-    # _ = plot_tree(model_type,
-    #               feature_names=X.columns,
-    #               class_names=[y.name],
-    #               filled=True,
-    #               fontsize=10
-    # )
-    # fig.savefig("decision_tree.png")
+    if model_type.__class__ == DecisionTreeClassifier:
+        print('Saving Decision Tree picture')
+        fig = plt.figure(figsize=(15, 10))
+        _ = plot_tree(model_type,
+                      feature_names=list(X.columns),
+                      class_names=[str(c) for c in model_type.classes_],
+                      filled=True,
+                      fontsize=5
+        )
+        fig.savefig("figures/decision_tree.png")
 
 
 if __name__ == '__main__':
