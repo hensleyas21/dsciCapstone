@@ -30,9 +30,9 @@ def output_stacked_bar_chart():
     df = df.sort_values(by='run_ratio', ascending=False)
     
     df = df.set_index('posteam').rename(columns={'run_ratio': 'Run', 'pass_ratio': 'Pass'})
-    df.plot(kind='bar', stacked=True, width=1)
+    df.plot(kind='bar', stacked=True, width=1, color={'Run': '#5799c7', 'Pass': '#ff9f4b'})
     plt.title(f'Run/Pass Ratio by Team in {SEASON}')
-    plt.legend(loc='upper left')
+    plt.legend(loc='upper right')
     plt.xlabel("Offensive Team")
     plt.ylabel("Percentage")
     plt.savefig('charts/stacked_bar_chart.svg')

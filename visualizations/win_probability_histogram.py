@@ -25,7 +25,7 @@ def output_win_probability_histogram():
 
     df = df[['wp_bin', 'run_ratio', 'pass_ratio']].rename(columns={'run_ratio': 'Run', 'pass_ratio': 'Pass'})
 
-    df.plot(kind='bar', stacked=True, width=1)
+    df.plot(kind='bar', stacked=True, width=1, color={'Run': '#5799c7', 'Pass': '#ff9f4b'})
     plt.title('Run/Pass Ratio by Win Probability')
     plt.xlabel('Win Probability')
     x_tick_labels = np.arange(0, 1.01, .1)
