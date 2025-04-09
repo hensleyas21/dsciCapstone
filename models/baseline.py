@@ -1,4 +1,5 @@
 import shared_methods
+from sklearn.metrics import confusion_matrix
 
 
 def play_type_prediction_baseline():
@@ -18,7 +19,9 @@ def play_type_prediction_baseline():
     df.loc[(df['down'] == 4) & (df['yardline_100'] <= 30), 'play_prediction'] = 'field_goal'
     num_correct_df = df.loc[df['play_prediction'] == df['play_type']]
     accuracy = len(num_correct_df) / len(df)
-    print(f'Baseline Accuracy: {accuracy}')
+    print(f'Baseline Accuracy: {accuracy}\n')
+    print('Confusion Matrix:')
+    print(confusion_matrix(df['play_type'], df['play_prediction'], labels=['run', 'pass', 'punt', 'field_goal', 'qb_kneel']))
 
 
 if __name__ == '__main__':
