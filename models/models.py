@@ -1,12 +1,12 @@
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.svm import LinearSVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from argparse import ArgumentParser
 from feature_selection import return_feature_selection_rows
 import pickle
@@ -14,7 +14,7 @@ import shared_methods
 
 def train_model(model_type):
     df = shared_methods.return_clean_data_df()
-    play_type_to_num = {'pass': 0, 'run': 1, 'punt': 2, 'field_goal': 3, 'qb_kneel': 4, 'qb_spike': 5}
+    play_type_to_num = {'pass': 0, 'run': 1, 'punt': 2, 'field_goal': 3, 'qb_kneel': 4}
     df['play_type'] = df['play_type'].map(play_type_to_num)
 
     print('Doing Feature Selection')
@@ -42,6 +42,10 @@ def train_model(model_type):
     filename = 'model.pkl'
     with open(filename, 'wb') as file:
         pickle.dump(model_type, file)
+
+    print('Confusion Matrix:')
+    print(confusion_matrix(y_test, y_pred,
+                           labels=[1, 0, 2, 3, 4]))  # Order: Run, Pass, Punt, FG, Kneel
 
     if model_type.__class__ == DecisionTreeClassifier:
         print('Saving Decision Tree picture')
