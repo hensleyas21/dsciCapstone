@@ -36,7 +36,8 @@ def output_win_probability_histogram():
     plt.xlabel('Win Probability', fontsize=16)
     x_tick_labels = np.arange(0, 1.01, .1)
     x_tick_labels = [f"{x:.1f}" for x in x_tick_labels]
-    plt.xticks(ticks=np.arange(0, 21, 2), labels=x_tick_labels, fontsize=12)
+    tick_positions = np.arange(0, 21, 2) - 0.5  # shift 0.5 left
+    plt.xticks(ticks=tick_positions, labels=x_tick_labels, fontsize=12)
     plt.ylabel('Percentage Ratio', fontsize=16)
     plt.yticks(ticks=np.arange(0, 1.01, .1), fontsize=12)
 
