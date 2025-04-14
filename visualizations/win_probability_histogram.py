@@ -42,7 +42,7 @@ def output_win_probability_histogram():
     plt.yticks(ticks=np.arange(0, 1.01, .1), fontsize=12)
 
     # Customize legend
-    plt.legend(fontsize=12, title_fontsize=16)
+    plt.legend(title="Play Type", fontsize=12, title_fontsize=16)
     plt.tight_layout()
     plt.savefig('charts/win_probability_histogram.svg')
     plt.show()
