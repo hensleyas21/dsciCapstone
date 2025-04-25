@@ -1,7 +1,7 @@
 from sklearn.feature_selection import SelectKBest, f_classif
 
 def return_feature_selection_rows(df):
-    df = df.sample(300000)
+    df = df.sample(300000, random_state=42)
 
     prediction_col = 'play_type'
 

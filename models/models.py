@@ -25,7 +25,7 @@ def train_model(model_type):
     print('Splitting into test and train')
     X = df.drop(columns=['play_type'])
     y = df['play_type']
-    X_train, X_test, y_train, y_test = train_test_split(X, y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
     print(f'Train Length = {len(X_train)}')
     print(f'Test Length = {len(X_test)}')
@@ -47,16 +47,16 @@ def train_model(model_type):
     print(confusion_matrix(y_test, y_pred,
                            labels=[1, 0, 2, 3, 4]))  # Order: Run, Pass, Punt, FG, Kneel
 
-    if model_type.__class__ == DecisionTreeClassifier:
-        print('Saving Decision Tree picture')
-        fig = plt.figure(figsize=(15, 10))
-        _ = plot_tree(model_type,
-                      feature_names=list(X.columns),
-                      class_names=[str(c) for c in model_type.classes_],
-                      filled=True,
-                      fontsize=5
-        )
-        fig.savefig("figures/decision_tree.png")
+    # if model_type.__class__ == DecisionTreeClassifier:
+    #     print('Saving Decision Tree picture')
+    #     fig = plt.figure(figsize=(15, 10))
+    #     _ = plot_tree(model_type,
+    #                   feature_names=list(X.columns),
+    #                   class_names=[str(c) for c in model_type.classes_],
+    #                   filled=True,
+    #                   fontsize=5
+    #     )
+    #     fig.savefig("figures/decision_tree.png")
 
 
 if __name__ == '__main__':
@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
     try:
         if args.model == 'DecisionTreeClassifier':
-            model = DecisionTreeClassifier(max_depth=5)
+            model = DecisionTreeClassifier(min_samples_leaf=50)
         elif args.model == 'GaussianNB':
             model = GaussianNB()
         elif args.model == 'KNeighborsClassifier':
