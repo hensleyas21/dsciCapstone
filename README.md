@@ -77,14 +77,16 @@ py data_cleaning/demo.py data_cleaning/config.json
 - For the Quarterback data (`passer_player_name`), that column was split by game and team, and then forward and back filled. This allowed us to have a record of what quarterback was on the field on each play, and not just the quarterback who through the ball in case of a pass. This column was saved as `quarterback_on_field`
 
 ### One Hot Encoding Columns
+- season_type
 - posteam
+- posteam_type
 - defteam
 - game_half
-- down
-- season (on second run through)
-- stadium
+- location
 - roof
 - surface
+- wind
+- temp
 - posteam_coach
 - defteam_coach
 - quarterback_on_field
