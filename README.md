@@ -109,8 +109,5 @@ py data_cleaning/demo.py data_cleaning/config.json
 - penalty_team
 - weather
 
-### Secondary Predictor Fields
-- run_location/run_gap
-
 ### Footnotes
 [^1]: [Description of the NFL Play Data fields](https://www.nflfastr.com/articles/field_descriptions.html)
