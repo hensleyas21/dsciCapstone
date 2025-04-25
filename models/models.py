@@ -1,4 +1,3 @@
-from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.svm import LinearSVC
@@ -6,7 +5,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.tree import DecisionTreeClassifier
 from argparse import ArgumentParser
 from feature_selection import return_feature_selection_rows
 import pickle
@@ -47,17 +46,6 @@ def train_model(model_type):
     print(confusion_matrix(y_test, y_pred,
                            labels=[1, 0, 2, 3, 4]))  # Order: Run, Pass, Punt, FG, Kneel
 
-    # if model_type.__class__ == DecisionTreeClassifier:
-    #     print('Saving Decision Tree picture')
-    #     fig = plt.figure(figsize=(15, 10))
-    #     _ = plot_tree(model_type,
-    #                   feature_names=list(X.columns),
-    #                   class_names=[str(c) for c in model_type.classes_],
-    #                   filled=True,
-    #                   fontsize=5
-    #     )
-    #     fig.savefig("figures/decision_tree.png")
-
 
 if __name__ == '__main__':
     parser = ArgumentParser()
@@ -77,7 +65,7 @@ if __name__ == '__main__':
         elif args.model == 'LogisticRegression':
             model = LogisticRegression()
         elif args.model == 'RandomForestClassifier':
-            model = RandomForestClassifier()
+            model = RandomForestClassifier(min_samples_leaf=50)
         elif args.model == 'LinearSVC':
             model = LinearSVC()
         else:
