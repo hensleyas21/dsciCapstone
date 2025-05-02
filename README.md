@@ -11,6 +11,13 @@ A data science capstone project for Grove City College. This project aims to ana
 
 [NFL Play Data](https://github.com/nflverse/nflverse-data/releases/tag/pbp)[^1]
 
+## Project Folder Information
+- Data: Location of all raw data .csv files
+- Data Cleaning: Contains scripts used to clean and load data into a fully-cleaned .csv file for general use
+- Data Report: Scripts to generate some plots and statistics needed for our Data Report turn-in
+- Models: Scripts related to our baseline model, feature selection, and the actual development of our models
+- Visualizations: Scripts used to generate the images (also stored) used for project presentations
+
 ## Data Cleaning
 
 To clean the data, run the following command from the main directory of the project:  
